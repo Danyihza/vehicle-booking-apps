@@ -24,9 +24,9 @@
                         </form>
                     </li>
                     <li>
-                        <a href="#"
-                            class="text-base text-gray-900 {{ $state == 'dashboard' ? 'bg-cyan-500 text-white' : 'hover:bg-gray-100' }} font-normal rounded-lg flex items-center p-2 group">
-                            <svg class="w-6 h-6 text-gray-500 {{ $state == 'dashboard' ? 'text-white' : 'group-hover:text-gray-900' }} transition duration-75"
+                        <a href="{{ route('admin.dashboard') }}"
+                            class="text-base {{ $state == 'dashboard' ? 'bg-cyan-500 text-white' : 'hover:bg-gray-100 text-gray-900' }} font-normal rounded-lg flex items-center p-2 group">
+                            <svg class="w-6 h-6 {{ $state == 'dashboard' ? 'text-white' : 'group-hover:text-gray-900 text-gray-500' }} transition duration-75"
                                 fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
                                 <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
@@ -36,9 +36,9 @@
                     </li>
                     <li>
                         <a href="{{ route('admin.vehicles') }}"
-                            class="text-base text-gray-900 font-normal rounded-lg {{ $state == 'vehicles' ? 'bg-cyan-500 text-white' : 'hover:bg-gray-100' }} flex items-center p-2 group ">
+                            class="text-base font-normal rounded-lg {{ $state == 'vehicles' ? 'bg-cyan-500 text-white' : 'hover:bg-gray-100 text-gray-900' }} flex items-center p-2 group ">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                class="w-6 h-6 text-gray-500 {{ $state == 'vehicles' ? 'text-white' : 'group-hover:text-gray-900' }} transition duration-75">
+                                class="w-6 h-6 {{ $state == 'vehicles' ? 'text-white' : 'group-hover:text-gray-900 text-gray-500' }} transition duration-75">
                                 <path
                                     d="M3.375 4.5C2.339 4.5 1.5 5.34 1.5 6.375V13.5h12V6.375c0-1.036-.84-1.875-1.875-1.875h-8.25zM13.5 15h-12v2.625c0 1.035.84 1.875 1.875 1.875h.375a3 3 0 116 0h3a.75.75 0 00.75-.75V15z" />
                                 <path
@@ -50,7 +50,7 @@
                     </li>
                     <li>
                         <a href="#"
-                            class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
+                            class="text-base font-normal rounded-lg {{ $state == 'booking_list' ? 'bg-cyan-500 text-white' : 'hover:bg-gray-100 text-gray-900' }} flex items-center p-2 group ">
                             <span class="material-symbols-rounded w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75">
                                 car_rental
                             </span>

@@ -26,3 +26,5 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
 });
 
 Route::get('/signin', [AuthController::class, 'index'])->name('auth.signin');
+Route::get('/signout', [AuthController::class, 'signout'])->name('auth.signout');
+Route::post('/signin', [AuthController::class, 'signin'])->name('auth.signin.post');

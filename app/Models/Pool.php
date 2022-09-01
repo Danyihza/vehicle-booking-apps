@@ -5,16 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Pool extends Model
 {
     use HasFactory;
-    protected $table = 'users';
+    protected $table = 'pools';
     protected $fillable = [
-        'id',
-        'name',
-        'username',
-        'password',
-        'role',
-        'position',
+        'id_user',
+        'pool_name',
     ];
 }
