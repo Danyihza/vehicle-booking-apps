@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('detail_vehicles', function (Blueprint $table) {
+        Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_vehicle')->constrained('vehicles');
-            $table->string('registration_number')->nullable();
-            $table->integer('kilometers')->nullable();
+            $table->foreignId('id_vehicle')->constrained('detail_vehicles');
+            $table->string('id_pool')->index();
+            $table->foreign('id_pool')->references('id')->on('users')->onDelete('cascade');
+            $table->string('driver');
+            $table->dateTime('start_time');
+            $table->dateTime('end_time');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_vehicles');
+        Schema::dropIfExists('bookings');
     }
 };

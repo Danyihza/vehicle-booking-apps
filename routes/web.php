@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\VehicleController as AdminVehicleController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return to_route('auth.signin');
+});
+
 Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/vehicles', [AdminVehicleController::class, 'index'])->name('vehicles');
 });
+
+Route::get('/signin', [AuthController::class, 'index'])->name('auth.signin');

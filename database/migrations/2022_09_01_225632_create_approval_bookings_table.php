@@ -13,9 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bookings', function (Blueprint $table) {
+        Schema::create('approval_bookings', function (Blueprint $table) {
             $table->id();
-            $table->
+            $table->foreignId('id_booking')->constrained('bookings');
+            $table->string('signed_by')->index();
+            $table->foreign('signed_by')->references('id')->on('users')->onDelete('cascade');
+            $table->enum('status', ['approve', 'deny']);
+            $table->timestamp('signed_at');
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bookings');
+        Schema::dropIfExists('detail_bookings');
     }
 };

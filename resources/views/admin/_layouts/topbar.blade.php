@@ -25,7 +25,7 @@
                 </a>
             </div>
             <div class="flex items-center">
-                <a href="#"
+                <a href="{{ route('auth.signin') }}"
                     class="hidden sm:inline-flex ml-5 text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-200 font-bold rounded-lg text-sm px-5 py-2.5 text-center items-center mr-3">
                     <span class="material-symbols-rounded mr-2">
                         logout

@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('detail_vehicles', function (Blueprint $table) {
+        Schema::create('pools', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_vehicle')->constrained('vehicles');
-            $table->string('registration_number')->nullable();
-            $table->integer('kilometers')->nullable();
+            $table->string('id_user')->index();
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+            $table->string('pool_name');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_vehicles');
+        Schema::dropIfExists('pools');
     }
 };
