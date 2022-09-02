@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('approval_bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_booking')->constrained('bookings');
-            $table->string('signed_by')->index();
-            $table->foreign('signed_by')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('id_booking')->constrained('bookings')->onDelete('cascade');
+            $table->string('signed_by')->index()->nullable();
+            $table->foreign('signed_by')->references('id')->on('users')->nullOnDelete();
             $table->enum('status', ['approve', 'deny']);
             $table->dateTime('signed_at')->nullable();
             $table->timestamps();

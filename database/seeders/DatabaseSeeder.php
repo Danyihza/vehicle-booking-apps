@@ -86,8 +86,6 @@ class DatabaseSeeder extends Seeder
                 'id_vehicle' => 1,
                 'id_pool' => 1,
                 'driver' => 'Mamat',
-                'start_time' => now(),
-                'end_time' => now()->addDay(),
                 'created_at' => now(),
                 'updated_at' => now()
             ]

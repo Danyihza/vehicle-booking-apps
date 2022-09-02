@@ -44,35 +44,43 @@ $state = 'booking_list';
             <div class="sm:flex">
                 <div class="hidden sm:flex items-center sm:divide-x sm:divide-gray-100 mb-3 sm:mb-0">
                     <div class="flex space-x-1 pl-0 sm:pl-2 mt-3 sm:mt-0">
-                        <div date-rangepicker class="flex items-center">
-                            <div class="relative">
-                                <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                                    <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400"
-                                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
+                        <form action="" method="get">
+                            <div class="flex flex-row space-x-2">
+                                <div date-rangepicker class="flex items-center">
+                                    <div class="relative">
+                                        <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                                            <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                        <input name="start" type="text" value="{{ request()->start }}"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Select date start">
+                                    </div>
+                                    <span class="mx-4 text-gray-500">to</span>
+                                    <div class="relative">
+                                        <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                                            <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                        <input name="end" type="text" value="{{ request()->end }}"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Select date end">
+                                    </div>
                                 </div>
-                                <input name="start" type="text"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Select date start">
+                                <button type="submit"
+                                    class="text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm inline-flex items-center px-3 py-2 text-center">
+                                    Go
+                                </button>
                             </div>
-                            <span class="mx-4 text-gray-500">to</span>
-                            <div class="relative">
-                                <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                                    <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400"
-                                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </div>
-                                <input name="end" type="text"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Select date end">
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
                 <div class="flex items-center space-x-2 sm:space-x-3 ml-auto">
@@ -128,13 +136,32 @@ $state = 'booking_list';
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                             @forelse($bookings as $book)
+                            @php
+                            $approval = $book->hasApproval;
+
+                            $check = false;
+                            $signed_at = '';
+                            $status = '';
+                            $status2 = '';
+                            foreach ($approval as $key => $value) {
+                                if ($value->signed_by == session('id')) {
+                                    $check = true;
+                                    $signed_at = $value->signed_at;
+                                    $status = $value->status;
+                                } else {
+                                    $status2 = $value->status;
+                                }
+
+                            }
+                            @endphp
                             <tr class="hover:bg-gray-100">
                                 <td class="p-4 flex items-center whitespace-nowrap space-x-6 mr-12 lg:mr-0">
                                     <img class="w-20 rounded-sm"
                                         src="{{ asset('images') . '/' . $book->hasVehicle->image }}" alt="">
                                     <div class="text-sm font-normal text-gray-500">
                                         <div class="flex flex-row items-center">
-                                            <div class="text-base font-semibold text-gray-900">{{ $book->hasVehicle->name }}</div>
+                                            <div class="text-base font-semibold text-gray-900">
+                                                {{ $book->hasVehicle->name }}</div>
                                             <a class="ml-1" href="#">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                     stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -148,59 +175,72 @@ $state = 'booking_list';
                                         </div>
                                     </div>
                                 </td>
-                                <td class="p-4 whitespace-nowrap text-base font-medium text-gray-900">{{ $book->hasPool->pool_name }}</td>
-                                <td class="p-4 whitespace-nowrap text-base font-medium text-gray-900">{{ $book->driver }}</td>
+                                <td class="p-4 whitespace-nowrap text-base font-medium text-gray-900">
+                                    {{ $book->hasPool->pool_name }}</td>
+                                <td class="p-4 whitespace-nowrap text-base font-medium text-gray-900">
+                                    {{ $book->driver }}</td>
                                 <td class="p-4 whitespace-nowrap text-base font-normal text-gray-900">
                                     <div class="flex items-center">
-                                        @if(count($book->hasApproval) == 0)
-                                        <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-800">Belum Disetujui oleh Admin</span>
-                                        @endif
-                                        
-                                        @if(count($book->hasApproval) == 1)
-                                        <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-800">Belum Disetujui oleh Atasan</span>
-                                        @endif
-                                        
-                                        @if(count($book->hasApproval) == 2)
-                                        <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-800">Disetujui</span>
+                                        @if($status == 'deny')
+                                            <span
+                                                class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-800">
+                                                Ditolak oleh Admin</span>
+                                        @else
+                                            @if($status2 == 'deny')
+                                                <span
+                                                    class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-800">
+                                                    Ditolak oleh Atasan</span>
+                                            @else
+                                                @if(count($book->hasApproval) == 0)
+                                                    <span
+                                                        class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-800">Belum
+                                                        Disetujui oleh Admin</span>
+                                                @endif
+                                            @if(count($book->hasApproval) == 1)
+                                                <span
+                                                    class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-800">Belum
+                                                    Disetujui oleh Atasan</span>
+                                            @endif
+                                            @if(count($book->hasApproval) == 2)
+                                                <span
+                                                    class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-800">Disetujui</span>
+                                            @endif
+                                            @endif
                                         @endif
                                     </div>
                                 </td>
                                 <td class="p-4 whitespace-nowrap space-x-2">
-                                    @php
-                                        $approval = $book->hasApproval;
-                                        // dd($approval);
-                                        // dd(session());
 
-                                        $check = false;
-                                        $signed_at = '';
-                                        foreach ($approval as $key => $value) {
-                                            if ($value->signed_by == session('id')) {
-                                                $check = true;
-                                                $signed_at = $value->signed_at;
-                                                continue;
-                                            }
-                                            // dd($value->signed_at);
-
-                                        }
-                                    @endphp
 
                                     @if(!$check)
-                                    <a href="#"
+                                    <a href="{{ route('admin.bookings.approval', [ 'id_booking' => $book->id, 'status' => 'approve' ]) }}"
                                         class="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-green-200 font-medium rounded-lg text-sm inline-flex items-center px-3 py-2 text-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 h-5 w-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                        </svg>                                          
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="mr-2 h-5 w-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M4.5 12.75l6 6 9-13.5" />
+                                        </svg>
                                         Setuju
                                     </a>
-                                    <a href="#"
+                                    <a href="{{ route('admin.bookings.approval', [ 'id_booking' => $book->id, 'status' => 'deny' ]) }}"
                                         class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-200 font-medium rounded-lg text-sm inline-flex items-center px-3 py-2 text-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 h-5 w-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                        </svg>                                                                                    
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="mr-2 h-5 w-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
                                         Tolak
                                     </a>
                                     @else
-                                    <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-800">Disetujui pada {{ $signed_at }}</span>
+                                    @if($status == 'approve')
+                                    <span
+                                        class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-800">Disetujui
+                                        pada {{ $signed_at }}</span>
+                                    @else
+                                    <span
+                                        class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-800">Ditolak
+                                        pada {{ $signed_at }}</span>
+                                    @endif
                                     @endif
                                 </td>
                                 <td class="p-4 whitespace-nowrap space-x-2">
@@ -247,45 +287,34 @@ $state = 'booking_list';
     <label for="modal-insert" class="modal cursor-pointer">
         <label class="modal-box relative" for="">
             <h3 class="text-lg font-bold">Add Booking</h3>
-            <form action="{{ route('admin.vehicles.post') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('admin.bookings.post') }}" method="post">
                 @csrf
                 <div class="flex flex-col mt-4">
-                    <div class="form-control w-full">
+                    <div class="form-control w-full my-2">
                         <label class="label">
                             <span class="label-text">Pilih Kendaraan</span>
                         </label>
-                        <select class="select select-bordered font-normal" name="type">
-                            <option value="Angkutan Orang">Angkutan Orang</option>
-                            <option value="Angkutan Barang">Angkutan Barang</option>
+                        <select class="select select-bordered font-normal" name="vehicle">
+                            @foreach($vehicles as $data)
+                            <option value="{{ $data->id }}">{{ $data->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-control w-full my-2">
                         <label class="label">
-                            <span class="label-text">Nama Kendaraan</span>
+                            <span class="label-text">Pilih Pool</span>
                         </label>
-                        <input type="text" name="name" placeholder="Type here" class="input input-bordered w-full" />
+                        <select class="select select-bordered font-normal" name="pool">
+                            @foreach($pools as $data)
+                            <option value="{{ $data->id }}">{{ $data->pool_name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-control w-full my-2">
                         <label class="label">
-                            <span class="label-text">Asal</span>
+                            <span class="label-text">Nama Driver</span>
                         </label>
-                        <input type="text" placeholder="Type here" name="origin" value="Milik Perusahaan"
-                            class="input input-bordered w-full" />
-                    </div>
-                    <div class="form-control w-full my-2">
-                        <label class="block mb-2 label-text" for="file_input">Upload gambar</label>
-                        <input name="image"
-                            class="block w-full text-sm bg-gray-50 rounded-lg border border-gray-300 cursor-pointer focus:outline-none"
-                            id="file_input" type="file">
-                    </div>
-                    <div class="form-control w-full my-2">
-                        <label for="default-toggle" class="inline-flex relative items-center mb-4 cursor-pointer">
-                            <input type="checkbox" value="on" id="default-toggle" name="is_active" class="sr-only peer">
-                            <div
-                                class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-cyan-300 dark:peer-focus:ring-cyan-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-600">
-                            </div>
-                            <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Aktif</span>
-                        </label>
+                        <input type="text" name="driver" placeholder="Type here" class="input input-bordered w-full" />
                     </div>
                     <div class="flex justify-end">
                         <label for="modal-insert"

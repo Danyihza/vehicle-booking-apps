@@ -15,11 +15,9 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_vehicle')->constrained('vehicles');
-            $table->foreignId('id_pool')->constrained('pools');
+            $table->foreignId('id_vehicle')->constrained('vehicles')->onDelete('cascade');
+            $table->foreignId('id_pool')->nullable()->constrained('pools')->nullOnDelete();
             $table->string('driver');
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
             $table->timestamps();
         });
     }

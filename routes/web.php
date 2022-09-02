@@ -29,8 +29,12 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
         Route::put('/update/{id}', [AdminVehicleController::class, 'update'])->name('update');
         Route::get('/delete/{id}', [AdminVehicleController::class, 'delete'])->name('delete');
     });
+
+    // Route::resource('bookings', AdminBookingController::class);
     Route::group(['as' => 'bookings.', 'prefix' => 'bookings'], function(){
         Route::get('/', [AdminBookingController::class, 'index'])->name('index');
+        Route::post('/', [AdminBookingController::class, 'post'])->name('post');
+        Route::get('/approval', [AdminBookingController::class, 'approval'])->name('approval');
     });
     
 });
