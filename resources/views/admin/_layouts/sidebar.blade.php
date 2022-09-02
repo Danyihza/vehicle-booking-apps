@@ -35,7 +35,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.vehicles') }}"
+                        <a href="{{ route('admin.vehicles.index') }}"
                             class="text-base font-normal rounded-lg {{ $state == 'vehicles' ? 'bg-cyan-500 text-white' : 'hover:bg-gray-100 text-gray-900' }} flex items-center p-2 group ">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                 class="w-6 h-6 {{ $state == 'vehicles' ? 'text-white' : 'group-hover:text-gray-900 text-gray-500' }} transition duration-75">
@@ -49,9 +49,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{ route('admin.bookings.index') }}"
                             class="text-base font-normal rounded-lg {{ $state == 'booking_list' ? 'bg-cyan-500 text-white' : 'hover:bg-gray-100 text-gray-900' }} flex items-center p-2 group ">
-                            <span class="material-symbols-rounded w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75">
+                            <span class="material-symbols-rounded w-6 h-6 {{ $state == 'booking_list' ? 'text-white' : 'group-hover:text-gray-900 text-gray-500' }} transition duration-75">
                                 car_rental
                             </span>
                             <span class="ml-3 flex-1 whitespace-nowrap">Booking List</span>

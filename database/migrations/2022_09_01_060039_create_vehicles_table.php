@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->enum('type',['Angkutan Orang', 'Angkutan Barang']);
             $table->string('origin');
+            $table->boolean('is_active')->default(true);
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

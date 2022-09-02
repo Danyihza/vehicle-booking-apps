@@ -9,8 +9,8 @@ module.exports = {
       sans: ['Inter', 'sans-serif']
     }
   },
-  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  plugins: [require("@tailwindcss/typography"), require('flowbite/plugin'), require("daisyui")],
   daisyui: {
-    themes: [],
+    themes: ['light'],
   },
 }

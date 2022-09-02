@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\User;
+use App\Models\Vehicle;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -23,6 +24,9 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        $vehicles = array(
+            array('name' => 'Mitsubishi L300','type' => 'Angkutan Barang','origin' => 'Milik Perusahaan','is_active' => 1,'image' => 'l300.jpg','created_at' => '2022-09-02 10:42:58','updated_at' => '2022-09-02 10:42:58')
+        );
 
         User::insert([
             [
@@ -56,5 +60,7 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => now()
             ]
         ]);
+
+        Vehicle::insert($vehicles);
     }
 }

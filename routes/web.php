@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BookingController as AdminBookingController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\VehicleController as AdminVehicleController;
 use App\Http\Controllers\AuthController;
@@ -22,7 +23,15 @@ Route::get('/', function () {
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
-    Route::get('/vehicles', [AdminVehicleController::class, 'index'])->name('vehicles');
+    Route::group(['as' => 'vehicles.', 'prefix' => 'vehicles'], function(){
+        Route::get('/', [AdminVehicleController::class, 'index'])->name('index');
+        Route::post('/', [AdminVehicleController::class, 'post'])->name('post');
+        Route::get('/delete/{id}', [AdminVehicleController::class, 'delete'])->name('delete');
+    });
+    Route::group(['as' => 'bookings.', 'prefix' => 'bookings'], function(){
+        Route::get('/', [AdminBookingController::class, 'index'])->name('index');
+    });
+    
 });
 
 Route::get('/signin', [AuthController::class, 'index'])->name('auth.signin');
