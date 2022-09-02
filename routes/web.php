@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BookingController as AdminBookingController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\VehicleController as AdminVehicleController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\User\BookingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,12 +17,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/signin', [AuthController::class, 'index'])->name('auth.signin');
+Route::get('/signout', [AuthController::class, 'signout'])->name('auth.signout');
+Route::post('/signin', [AuthController::class, 'signin'])->name('auth.signin.post');
 
-Route::get('/', function () {
-    return to_route('auth.signin');
+Route::group(['as' => 'user.', 'middleware' => 'isUser'], function () {
+    Route::get('/', [BookingController::class, 'index'])->name('booking');
 });
 
-Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::group(['as' => 'vehicles.', 'prefix' => 'vehicles'], function(){
         Route::get('/', [AdminVehicleController::class, 'index'])->name('index');
@@ -39,7 +43,3 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
     });
     
 });
-
-Route::get('/signin', [AuthController::class, 'index'])->name('auth.signin');
-Route::get('/signout', [AuthController::class, 'signout'])->name('auth.signout');
-Route::post('/signin', [AuthController::class, 'signin'])->name('auth.signin.post');

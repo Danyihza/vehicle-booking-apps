@@ -28,9 +28,7 @@ class AuthController extends Controller
                 if($user->role == 1){
                     return to_route('admin.dashboard');
                 } else if($user->role == 2) {
-                    return to_route('admin.dashboard');
-                } else if($user->role == 3) {
-                    return to_route('admin.dashboard');
+                    return to_route('user.booking');
                 } else {
                     return back()->withInput()->with('error', 'Unknown User');
                 }
@@ -42,7 +40,7 @@ class AuthController extends Controller
         return back()->with('error', 'User not found');
     }
 
-    public function signout()
+    public static function signout()
     {
         session()->flush();
         return to_route('auth.signin');

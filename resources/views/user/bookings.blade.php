@@ -1,4 +1,4 @@
-@extends('admin._layouts.master')
+@extends('user._layouts.master')
 
 @section('title', 'Booking List')
 
