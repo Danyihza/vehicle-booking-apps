@@ -16,4 +16,14 @@ class Booking extends Model
         'start_time',
         'end_time'
     ];
+
+    public function hasApproval()
+    {
+        return $this->hasMany(Approval::class, 'id_booking');
+    }
+
+    public function hasVehicle()
+    {
+        return $this->belongsTo(Vehicle::class, 'id_vehicle');
+    }
 }

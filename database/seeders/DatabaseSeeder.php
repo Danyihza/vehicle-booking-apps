@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Pool;
 use App\Models\User;
 use App\Models\Vehicle;
 use Illuminate\Database\Seeder;
@@ -25,7 +26,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $vehicles = array(
-            array('name' => 'Mitsubishi L300','type' => 'Angkutan Barang','origin' => 'Milik Perusahaan','is_active' => 1,'image' => 'l300.jpg','created_at' => '2022-09-02 10:42:58','updated_at' => '2022-09-02 10:42:58')
+            array('name' => 'Mitsubishi L300', 'type' => 'Angkutan Barang', 'origin' => 'Milik Perusahaan', 'is_active' => 1, 'image' => 'l300.jpg', 'created_at' => '2022-09-02 10:42:58', 'updated_at' => '2022-09-02 10:42:58')
         );
 
         User::insert([
@@ -62,5 +63,23 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Vehicle::insert($vehicles);
+
+        Pool::insert([
+            [
+                'nama_pool' => 'Pool 1'
+            ],
+            [
+                'nama_pool' => 'Pool 2'
+            ],
+            [
+                'nama_pool' => 'Pool 3'
+            ],
+            [
+                'nama_pool' => 'Pool 4'
+            ],
+            [
+                'nama_pool' => 'Pool 5'
+            ],
+        ]);
     }
 }

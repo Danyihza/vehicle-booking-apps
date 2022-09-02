@@ -15,4 +15,9 @@ class Approval extends Model
         'status',
         'signed_at'
     ];
+
+    public function hasBooking()
+    {
+        return $this->belongsTo(Booking::class, 'id_booking');
+    }
 }

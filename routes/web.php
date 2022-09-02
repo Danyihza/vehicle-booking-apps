@@ -26,6 +26,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
     Route::group(['as' => 'vehicles.', 'prefix' => 'vehicles'], function(){
         Route::get('/', [AdminVehicleController::class, 'index'])->name('index');
         Route::post('/', [AdminVehicleController::class, 'post'])->name('post');
+        Route::put('/update/{id}', [AdminVehicleController::class, 'update'])->name('update');
         Route::get('/delete/{id}', [AdminVehicleController::class, 'delete'])->name('delete');
     });
     Route::group(['as' => 'bookings.', 'prefix' => 'bookings'], function(){

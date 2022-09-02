@@ -43,14 +43,14 @@ $state = 'vehicles';
             </div>
             <div class="sm:flex">
                 <div class="hidden sm:flex items-center sm:divide-x sm:divide-gray-100 mb-3 sm:mb-0">
-                    <form class="lg:pr-3" action="#" method="GET">
+                    {{-- <form class="lg:pr-3" action="#" method="GET">
                         <label for="users-search" class="sr-only">Search</label>
                         <div class="mt-1 relative lg:w-64 xl:w-96">
                             <input type="text" name="email" id="users-search"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                                 placeholder="Search for vehicles">
                         </div>
-                    </form>
+                    </form> --}}
                     <div class="flex space-x-1 pl-0 sm:pl-2 mt-3 sm:mt-0">
                     </div>
                 </div>
@@ -86,7 +86,6 @@ $state = 'vehicles';
                                     Status
                                 </th>
                                 <th scope="col" class="p-4">
-
                                 </th>
                             </tr>
                         </thead>
@@ -163,7 +162,7 @@ $state = 'vehicles';
             </div>
         </div>
     </div>
-    <div
+    {{-- <div
         class="bg-white sticky sm:flex items-center w-full sm:justify-between bottom-0 right-0 border-t border-gray-200 p-4">
         <div class="flex items-center mb-4 sm:mb-0">
             <a href="#"
@@ -208,7 +207,7 @@ $state = 'vehicles';
                 </svg>
             </a>
         </div>
-    </div>
+    </div> --}}
 
 </main>
 
@@ -289,8 +288,9 @@ $state = 'vehicles';
 <label for="modal-edit-{{ $data->id }}" class="modal cursor-pointer">
     <label class="modal-box relative" for="">
         <h3 class="text-lg font-bold">Edit Vehicle</h3>
-        <form action="{{ route('admin.vehicles.post') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.vehicles.update', $data->id) }}" method="post" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="flex flex-col mt-4">
                 <div class="form-control w-full my-2">
                     <label class="label">
@@ -321,8 +321,8 @@ $state = 'vehicles';
                         id="file_input" type="file">
                 </div>
                 <div class="form-control w-full my-2">
-                    <label for="default-toggle" class="inline-flex relative items-center mb-4 cursor-pointer">
-                        <input type="checkbox" value="on" id="default-toggle" name="is_active" class="sr-only peer" {{ $data->is_active ? 'checked' : '' }}>
+                    <label for="is_active-toggle-{{ $data->id }}" class="inline-flex relative items-center mb-4 cursor-pointer">
+                        <input type="checkbox" value="on" id="is_active-toggle-{{ $data->id }}" name="is_active" class="sr-only peer" {{ $data->is_active ? 'checked' : '' }}>
                         <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-cyan-300 dark:peer-focus:ring-cyan-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-600"></div>
                         <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Aktif</span>
                     </label>

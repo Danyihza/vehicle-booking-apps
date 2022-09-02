@@ -49,7 +49,7 @@ class VehicleController extends Controller
         $file = $request->file('image');
         if($file){
             $vehicle->image = $file->getClientOriginalName();
-            $file->move(public_path('images'), $file->getClientOriginalName());\
+            $file->move(public_path('images'), $file->getClientOriginalName());
         }
         $vehicle->save();
 
