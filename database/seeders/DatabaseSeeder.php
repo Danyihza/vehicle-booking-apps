@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Approval;
+use App\Models\Booking;
 use App\Models\Pool;
 use App\Models\User;
 use App\Models\Vehicle;
@@ -66,19 +68,47 @@ class DatabaseSeeder extends Seeder
 
         Pool::insert([
             [
-                'nama_pool' => 'Pool 1'
+                'id_user' => 'USR001',
+                'pool_name' => 'Pool 1',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
-                'nama_pool' => 'Pool 2'
+                'id_user' => 'USR002',
+                'pool_name' => 'Pool 2',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+        ]);
+
+        Booking::insert([
+            [
+                'id_vehicle' => 1,
+                'id_pool' => 1,
+                'driver' => 'Mamat',
+                'start_time' => now(),
+                'end_time' => now()->addDay(),
+                'created_at' => now(),
+                'updated_at' => now()
+            ]
+        ]);
+
+        Approval::insert([
+            [
+                'id_booking' => 1,
+                'signed_by' => 'ADM001',
+                'status' => 'approve',
+                'signed_at' => now(),
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
-                'nama_pool' => 'Pool 3'
-            ],
-            [
-                'nama_pool' => 'Pool 4'
-            ],
-            [
-                'nama_pool' => 'Pool 5'
+                'id_booking' => 1,
+                'signed_by' => 'USR001',
+                'status' => 'approve',
+                'signed_at' => now()->addHours(4),
+                'created_at' => now(),
+                'updated_at' => now()->addHours(4)
             ],
         ]);
     }

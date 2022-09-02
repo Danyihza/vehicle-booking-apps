@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('signed_by')->index();
             $table->foreign('signed_by')->references('id')->on('users')->onDelete('cascade');
             $table->enum('status', ['approve', 'deny']);
-            $table->timestamp('signed_at');
+            $table->dateTime('signed_at')->nullable();
             $table->timestamps();
         });
     }

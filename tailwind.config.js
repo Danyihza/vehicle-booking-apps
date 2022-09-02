@@ -2,14 +2,15 @@
 module.exports = {
   content: ["./resources/**/*.blade.php",
   "./resources/**/*.js",
-  "./resources/**/*.vue",],
+  "./resources/**/*.vue",
+  "./node_modules/flowbite/**/*.js"],
   theme: {
     extend: {},
     fontFamily: {
       sans: ['Inter', 'sans-serif']
     }
   },
-  plugins: [require("@tailwindcss/typography"), require('flowbite/plugin'), require("daisyui")],
+  plugins: [require("@tailwindcss/typography"),require('flowbite/plugin'), require("daisyui")],
   daisyui: {
     themes: ['light'],
   },
