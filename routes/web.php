@@ -35,6 +35,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
         Route::get('/', [AdminBookingController::class, 'index'])->name('index');
         Route::post('/', [AdminBookingController::class, 'post'])->name('post');
         Route::get('/approval', [AdminBookingController::class, 'approval'])->name('approval');
+        Route::get('/export', [AdminBookingController::class, 'exportToExcel'])->name('export');
     });
     
 });

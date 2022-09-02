@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\BookingsExport;
 use App\Http\Controllers\Controller;
 use App\Models\Approval;
 use App\Models\Booking;
 use App\Models\Pool;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BookingController extends Controller
 {
@@ -46,6 +48,13 @@ class BookingController extends Controller
         $newApproval->save();
 
         return back()->with('success', 'Approval done!');
+    }
 
+    public function exportToExcel(Request $request)
+    {
+        $from = $request->start ? date('Y-m-d', strtotime($request->start)) : 0;
+        $to = $request->end ? date('Y-m-d', strtotime($request->end)) : 0;
+        // dd($from);
+        return Excel::download(new BookingsExport($from, $to), 'bookings.xlsx');
     }
 }
