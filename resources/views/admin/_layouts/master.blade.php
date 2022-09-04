@@ -21,6 +21,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="https://demo.themesberg.com/windster/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://demo.themesberg.com/windster/favicon-16x16.png">
     <link rel="icon" type="image/png" href="https://demo.themesberg.com/windster/favicon.ico">
+    <input type="hidden" id="base-url" data-url="{{ url()->to('/') }}">
 
 
 </head>

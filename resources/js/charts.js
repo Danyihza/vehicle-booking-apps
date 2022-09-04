@@ -1,6 +1,16 @@
 import ApexCharts from 'apexcharts';
 
+const base_url = document.getElementById('base-url')?.dataset.url ?? null;
+	async function getData(){
+		const result = await fetch(`${base_url}/api/bookings`)
+		.then(result => result.json())
+		.then(rs => rs)
+		.catch(error => console.error(error));
+		return result.data
+	}
+
 if (document.getElementById('main-chart')) {
+	const result = await getData()
 	const options = {
 		chart: {
 			height: 420,
@@ -13,7 +23,7 @@ if (document.getElementById('main-chart')) {
 		},
 		fill: {
 			type: 'solid',
-			opacity: 0.3,
+			opacity: 0.5,
 		},
 		dataLabels: {
 			enabled: false
@@ -29,13 +39,15 @@ if (document.getElementById('main-chart')) {
 		},
 		series: [
 			{
-				name: 'Revenue',
-				data: [6356, 6218, 6156, 6526, 6356, 6256, 6056],
+				name: 'Pemakaian',
+				data: result.count,
 				color: '#0694a2'
 			},
 		],
 		xaxis: {
-			categories: ['01 Feb', '02 Feb', '03 Feb', '04 Feb', '05 Feb', '06 Feb', '07 Feb'],
+			tickPlacement: 'between',
+			floating: false,
+			categories: result.vehicle,
 			labels: {
 				style: {
 					colors: ['#6B7280'],
@@ -58,7 +70,7 @@ if (document.getElementById('main-chart')) {
 					fontWeight: 500,
 				},
 				formatter: function (value) {
-					return '$' + value;
+					return value + 'x';
 				}
 			},
 		},
