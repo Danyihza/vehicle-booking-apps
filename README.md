@@ -26,3 +26,6 @@ php artisan migrate:fresh --seed
 |---|---|---|
 |admin|admin|Administrator   |
 |johndoe01!|123123123|Atasan yang menyutujui|
+
+## Log Viewer
+You can see log apps in ``` /log-viewer ``` and select the file
