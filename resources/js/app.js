@@ -1,5 +1,5 @@
+import './charts';
 import './alert';
 import './bootstrap';
-import './charts';
 import './sidebar';
 

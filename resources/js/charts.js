@@ -10,6 +10,9 @@ const base_url = document.getElementById('base-url')?.dataset.url ?? null;
 	}
 
 if (document.getElementById('main-chart')) {
+	initChart();
+}
+async function initChart(){
 	const result = await getData()
 	const options = {
 		chart: {

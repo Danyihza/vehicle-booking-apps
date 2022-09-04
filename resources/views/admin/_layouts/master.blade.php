@@ -12,11 +12,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    @vite('resources/css/app.css')
-    @vite('resources/js/app.js')
+    {{-- @vite('resources/css/app.css')
+    @vite('resources/js/app.js') --}}
     {{-- <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" /> --}}
     {{-- <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script> --}}
     <script src="https://unpkg.com/flowbite@1.5.3/dist/datepicker.js"></script>
+    <script src="{{ asset('') }}build/assets/app.acc789fa.js" defer></script>
+    <link rel="stylesheet" href="{{ asset('') }}build/assets/app.b4274798.css">
     <link rel="apple-touch-icon" sizes="180x180" href="https://demo.themesberg.com/windster/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="https://demo.themesberg.com/windster/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://demo.themesberg.com/windster/favicon-16x16.png">

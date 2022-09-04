@@ -16,10 +16,10 @@ class BookingController extends Controller
         $vehicle = $bookings->map(function ($value) {
             return $value->hasVehicle->name;
         });
+
         $count = $bookings->map(function ($value) {
             return $value->total;
         });
-
         
         return response()->json([
             'success' => true,

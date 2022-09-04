@@ -57,7 +57,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Taylor Otwell',
                 'username' => 'taylor99!',
                 'password' => Hash::make('123123123'),
-                'role' => 3,
+                'role' => 2,
                 'position' => 'Pengelola Kendaraan',
                 'created_at' => now(),
                 'updated_at' => now()
