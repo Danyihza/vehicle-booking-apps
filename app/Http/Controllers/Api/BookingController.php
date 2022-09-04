@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Booking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class BookingController extends Controller
 {
@@ -21,6 +22,7 @@ class BookingController extends Controller
             return $value->total;
         });
         
+        Log::info("API request from " . request()->ip());
         return response()->json([
             'success' => true,
             'data' => [

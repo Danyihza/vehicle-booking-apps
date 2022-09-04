@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class VehicleController extends Controller
 {
@@ -28,6 +29,7 @@ class VehicleController extends Controller
         $file->move(public_path('images'), $file->getClientOriginalName());
         $newVehicle->save();
 
+        Log::info("New vehicle data has been succesfully added");
         return back()->with('success', 'Data has been successfully submited');
     }
 
@@ -36,6 +38,7 @@ class VehicleController extends Controller
         $vehicle = Vehicle::find($id);
         $vehicle->delete();
 
+        Log::info("Vehicle data has been succesfully delete= id: {$id}");
         return back()->with('error', 'Data has been deleted');
     }
 
@@ -53,6 +56,7 @@ class VehicleController extends Controller
         }
         $vehicle->save();
 
+        Log::info("Vehicle data has been succesfully updated= id: {$id}");
         return back()->with('success', 'Data has been successfully submited');
     }
 }

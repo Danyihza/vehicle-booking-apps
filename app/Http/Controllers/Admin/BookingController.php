@@ -9,6 +9,7 @@ use App\Models\Booking;
 use App\Models\Pool;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Maatwebsite\Excel\Facades\Excel;
 
 class BookingController extends Controller
@@ -35,6 +36,7 @@ class BookingController extends Controller
         $newBook->driver = $request->driver;
         $newBook->save();
 
+        Log::info("New booking data has been succesfully added= id: {$newBook->id}");
         return back()->with('success', 'Data has been successfully submited');
     }
 
@@ -47,6 +49,7 @@ class BookingController extends Controller
         $newApproval->signed_at = now();
         $newApproval->save();
 
+        Log::info("New approval data has been succesfully added= id: {$newApproval->id}, status: {$newApproval->status}");
         return back()->with('success', 'Approval done!');
     }
 
@@ -55,6 +58,7 @@ class BookingController extends Controller
         $from = $request->start ? date('Y-m-d', strtotime($request->start)) : 0;
         $to = $request->end ? date('Y-m-d', strtotime($request->end)) : 0;
         // dd($from);
+        Log::info("Excel report has been generated");
         return Excel::download(new BookingsExport($from, $to), 'bookings.xlsx');
     }
 }
