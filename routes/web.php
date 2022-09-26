@@ -25,7 +25,7 @@ Route::group(['as' => 'user.', 'middleware' => 'isUser'], function () {
     Route::get('/', [BookingController::class, 'index'])->name('booking');
 });
 
-Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
+Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::group(['as' => 'vehicles.', 'prefix' => 'vehicles'], function(){
         Route::get('/', [AdminVehicleController::class, 'index'])->name('index');

@@ -52,16 +52,6 @@ class DatabaseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now()
             ],
-            [
-                'id' => 'USR002',
-                'name' => 'Taylor Otwell',
-                'username' => 'taylor99!',
-                'password' => Hash::make('123123123'),
-                'role' => 2,
-                'position' => 'Pengelola Kendaraan',
-                'created_at' => now(),
-                'updated_at' => now()
-            ]
         ]);
 
         Vehicle::insert($vehicles);
@@ -70,12 +60,6 @@ class DatabaseSeeder extends Seeder
             [
                 'id_user' => 'USR001',
                 'pool_name' => 'Pool 1',
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'id_user' => 'USR002',
-                'pool_name' => 'Pool 2',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
